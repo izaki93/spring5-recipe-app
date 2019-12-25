@@ -15,9 +15,10 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    //Default Behavior of EnumType is ORDINAL : means the index of each entry of Enum (1 or 2 or ...)
+    @Enumerated(value = EnumType.STRING)
     private String directions;
-    //Todo add
-    //private Difficulty difficulty;
+    private Difficulty difficulty;
     @Lob
     private byte[] image;
     @OneToOne(cascade = CascadeType.ALL)
@@ -87,6 +88,14 @@ public class Recipe {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 
     public byte[] getImage() {
