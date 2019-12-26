@@ -9,20 +9,25 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String description;
     private Integer prepTime;
     private Integer cookTime;
     private Integer servings;
     private String source;
     private String url;
+    private String directions;
+
     //Default Behavior of EnumType is ORDINAL : means the index of each entry of Enum (1 or 2 or ...)
     @Enumerated(value = EnumType.STRING)
-    private String directions;
     private Difficulty difficulty;
+
     @Lob
     private byte[] image;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
 
