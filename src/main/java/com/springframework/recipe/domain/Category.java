@@ -11,6 +11,7 @@ import java.util.Set;
  * @project spring5-recipe-app
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipes"})
 @Entity
 public class Category {
 

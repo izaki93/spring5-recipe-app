@@ -11,6 +11,7 @@ import java.math.BigDecimal;
  * @project spring5-recipe-app
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Ingredient {
 
