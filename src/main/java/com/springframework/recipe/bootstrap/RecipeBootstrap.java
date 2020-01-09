@@ -4,6 +4,7 @@ import com.springframework.recipe.domain.*;
 import com.springframework.recipe.repositories.CategoryRepository;
 import com.springframework.recipe.repositories.RecipeRepository;
 import com.springframework.recipe.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -19,6 +20,7 @@ import java.util.Optional;
  * @created 26/12/2019 - 11:27 AM
  * @project spring5-recipe-app
  */
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -35,6 +37,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         recipeRepository.saveAll(getRecipes());
+        log.debug("Loading Bootstrap Data.");
     }
 
     private List<Recipe> getRecipes() {
